@@ -1,7 +1,7 @@
 function MoviePage() {
   return (
     <>
-      <p>Movie </p>
+      <p>Movie</p>
     </>
   );
 }

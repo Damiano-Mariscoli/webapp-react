@@ -22,9 +22,13 @@ function HomePage() {
   return (
     <>
       <h1>Home Page</h1>
-      {movies.map((movie) => {
-        return <MovieCard key={movie.id} movie={movie}></MovieCard>;
-      })}
+      <div className="container">
+        <div className="row">
+          {movies.map((movie) => {
+            return <MovieCard key={movie.id} movie={movie}></MovieCard>;
+          })}
+        </div>
+      </div>
     </>
   );
 }
