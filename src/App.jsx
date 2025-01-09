@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./App.css";
-import "./index.css";
 import Nav from "./components/Nav.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "./layouts/DefaultLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";

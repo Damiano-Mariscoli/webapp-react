@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="bg-primary">
       <div className="container">
-        <Link to="/">Home</Link>
+        <Link className={"link_white"} to="/">
+          Home
+        </Link>
       </div>
     </footer>
   );
