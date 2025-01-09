@@ -7,6 +7,9 @@ function MovieCard({ movie }) {
       <div>
         <h1>{title}</h1>
       </div>
+      <div>
+        <img src={`${image}`} alt="" />
+      </div>
       <Link to={`/book/${id}`}>Read More</Link>
     </>
   );

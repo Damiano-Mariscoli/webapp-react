@@ -1,23 +1,30 @@
+import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
+import axios from "axios";
 
 function HomePage() {
-  const movie = {
-    id: 2,
-    title: "The Godfather",
-    director: "Francis Ford Coppola",
-    genre: "Crime",
-    release_year: 1972,
-    abstract:
-      "The story of a powerful Italian-American crime family and their struggles.",
-    image: null,
-    created_at: "2024-11-29T10:40:13.000Z",
-    updated_at: "2024-11-29T10:40:13.000Z",
-  };
+  const [movies, setMovies] = useState([]);
+  function fetchMovies() {
+    axios
+      .get("http://localhost:3000/api/movies/")
+      .then((response) => {
+        console.log(response.data);
+        setMovies(response.data);
+        console.log(movies);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+  useEffect(() => {
+    fetchMovies();
+  }, []);
   return (
     <>
       <h1>Home Page</h1>
-
-      <MovieCard movie={movie}></MovieCard>
+      {movies.map((movie) => {
+        return <MovieCard key={movie.id} movie={movie}></MovieCard>;
+      })}
     </>
   );
 }
