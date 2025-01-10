@@ -21,9 +21,8 @@ function HomePage() {
   }, []);
   return (
     <>
-      <h1>Home Page</h1>
-      <div className="container">
-        <div className="row">
+      <div className="container my-5">
+        <div className="row d-flex g-5">
           {movies.map((movie) => {
             return <MovieCard key={movie.id} movie={movie}></MovieCard>;
           })}

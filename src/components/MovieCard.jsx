@@ -5,19 +5,42 @@ function MovieCard({ movie }) {
   return (
     <>
       <div className="col-4">
-        <div className="card" style={{ width: "18rem" }}>
+        <div
+          className="card position-relative h-100"
+          style={{
+            borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <img
             src={image}
             className="card-img-top"
             alt={title}
-            style={{ maxHeight: "200px", objectFit: "cover" }}
+            style={{
+              width: "100%",
+              aspectRatio: "1/1.4",
+              borderTopLeftRadius: "10px",
+              borderTopRightRadius: "10px",
+            }}
           />
-          <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{abstract}</p>
-            <Link to={`/movies/${id}`} className="btn btn-primary">
-              Read More
-            </Link>
+          <div
+            className=" d-flex flex-column bg-dark flex-grow-1"
+            style={{
+              bottom: "0px",
+              borderBottomLeftRadius: "10px",
+              borderBottomRightRadius: "10px",
+            }}
+          >
+            <div className="card-body flex-grow-1">
+              <h5 className="card-title">{title}</h5>
+              <p className="card-text">{abstract}</p>
+            </div>
+            <div className="card-footer">
+              <Link to={`/movies/${id}`} className="btn btn-primary">
+                Read More
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -25,13 +48,3 @@ function MovieCard({ movie }) {
   );
 }
 export default MovieCard;
-
-{
-  /* <div>
-        <h1>{title}</h1>
-      </div>
-      <div>
-        <img src={`${image}`} alt="" />
-      </div>
-      <Link to={`/movies/${id}`}>Read More</Link> */
-}
