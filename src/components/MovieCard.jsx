@@ -4,7 +4,7 @@ function MovieCard({ movie }) {
   const { id, title, author, image, abstract } = movie;
   return (
     <>
-      <div className="col-4">
+      <div className="col-12 col-lg-4 col-md-6">
         <div
           className="card position-relative h-100"
           style={{
@@ -20,13 +20,14 @@ function MovieCard({ movie }) {
             style={{
               width: "100%",
               aspectRatio: "1/1.4",
-              borderTopLeftRadius: "10px",
-              borderTopRightRadius: "10px",
+              borderRadius: "10px",
             }}
           />
           <div
-            className=" d-flex flex-column bg-dark flex-grow-1"
+            className=" d-flex flex-column bg-dark flex-grow-1 position-absolute"
             style={{
+              width: "100%",
+              height: "13rem",
               bottom: "0px",
               borderBottomLeftRadius: "10px",
               borderBottomRightRadius: "10px",
