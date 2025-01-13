@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { use } from "react";
+import ReviewForm from "../../components/ReviewForm";
 
 function MoviePage() {
   const [movie, setMovie] = useState(null);
@@ -29,6 +30,14 @@ function MoviePage() {
             src={`http://localhost:3000/images/movies-covers/${movie.image}`}
             alt=""
           />
+          {movie.reviews.map((review) => (
+            <div key={review.id}>
+              <p>{review.text}</p>
+            </div>
+          ))}
+          <div>
+            <ReviewForm id={id} onSuccess={fetchMovie} />
+          </div>
         </>
       ) : (
         <>
