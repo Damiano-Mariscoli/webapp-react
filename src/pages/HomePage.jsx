@@ -6,7 +6,7 @@ import GlobalContext from "../contexts/golbalContext";
 function HomePage() {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
-  const { setIsLoading } = useContext(GlobalContext);
+  const { setIsLoading, isLoading } = useContext(GlobalContext);
   function fetchMovies() {
     setIsLoading(true);
     axios
@@ -57,15 +57,11 @@ function HomePage() {
           </form>
         </div>
         <div className="row d-flex g-5">
-          {movies.length ? (
-            movies.map((movie) => {
-              return <MovieCard key={movie.id} movie={movie}></MovieCard>;
-            })
-          ) : (
-            <>
-              <div>Nessun risultato trovato</div>
-            </>
-          )}
+          {movies.length
+            ? movies.map((movie) => {
+                return <MovieCard key={movie.id} movie={movie}></MovieCard>;
+              })
+            : isLoading === false && <div>Nessun risultato trovato</div>}
         </div>
       </div>
     </>

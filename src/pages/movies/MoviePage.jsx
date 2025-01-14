@@ -8,7 +8,7 @@ import GlobalContext from "../../contexts/golbalContext";
 function MoviePage() {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
-  const { setIsLoading } = useContext(GlobalContext);
+  const { setIsLoading, isLoading } = useContext(GlobalContext);
   function fetchMovie() {
     setIsLoading(true);
     axios
@@ -46,9 +46,11 @@ function MoviePage() {
           </div>
         </>
       ) : (
-        <>
-          <h1>film non trovato</h1>
-        </>
+        isLoading === false && (
+          <>
+            <div>Film non trovato</div>
+          </>
+        )
       )}
     </>
   );
