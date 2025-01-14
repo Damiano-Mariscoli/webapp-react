@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import style from "./MovieCard.module.css";
+
 function MovieCard({ movie }) {
   const { id, title, author, image, abstract } = movie;
   return (
@@ -24,8 +24,9 @@ function MovieCard({ movie }) {
             }}
           />
           <div
-            className=" d-flex flex-column bg-dark flex-grow-1 position-absolute"
+            className=" d-flex flex-column flex-grow-1 position-absolute"
             style={{
+              background: "#183D3D",
               width: "100%",
               height: "13rem",
               bottom: "0px",
@@ -34,11 +35,15 @@ function MovieCard({ movie }) {
             }}
           >
             <div className="card-body flex-grow-1">
-              <h5 className="card-title">{title}</h5>
-              <p className="card-text">{abstract}</p>
+              <h5 className="card-title text-light">{title}</h5>
+              <p className="card-text text-light">{abstract}</p>
             </div>
             <div className="card-footer">
-              <Link to={`/movies/${id}`} className="btn btn-primary">
+              <Link
+                to={`/movies/${id}`}
+                className="btn"
+                style={{ background: "#93B1A6" }}
+              >
                 Read More
               </Link>
             </div>

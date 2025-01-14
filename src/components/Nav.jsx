@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 function Nav() {
   return (
     <nav className="d-flex justify-content-between mx-5 mb-0 py-2">
-      <img src="../logo.svg" alt="" style={{ width: "100px" }} />
+      <img
+        src="../logo.svg"
+        alt=""
+        style={{ width: "100px", color: "white" }}
+      />
       <ul className="d-flex align-items-center gap-3">
         <li>
           <NavLink className={"link_white"} to="/">

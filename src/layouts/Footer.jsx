@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-primary">
+    <footer style={{ background: "#183D3D" }}>
       <div
         className="container d-flex align-items-center justify-content-center"
         style={{ height: "50px" }}

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import GlobalContext from "../contexts/golbalContext";
 export default function ReviewForm({ id, onSuccess = () => {} }) {
   const initialFormData = {
     vote: 1,
@@ -7,6 +8,7 @@ export default function ReviewForm({ id, onSuccess = () => {} }) {
     text: "",
   };
   const [formData, setFormData] = useState(initialFormData);
+  const { setIsLoading } = useContext(GlobalContext);
 
   function onFormChange(e) {
     const { value, name } = e.target;
@@ -18,6 +20,7 @@ export default function ReviewForm({ id, onSuccess = () => {} }) {
   }
 
   function storeReview(e) {
+    setIsLoading(true);
     console.log("salva review sul server");
     e.preventDefault();
     axios
@@ -29,6 +32,9 @@ export default function ReviewForm({ id, onSuccess = () => {} }) {
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 

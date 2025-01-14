@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import axios from "axios";
+import GlobalContext from "../contexts/golbalContext";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
+  const { setIsLoading } = useContext(GlobalContext);
   function fetchMovies() {
+    setIsLoading(true);
     axios
       .get("http://localhost:3000/api/movies/", {
         params: {
@@ -19,6 +22,9 @@ function HomePage() {
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
   function searchMovies(e) {
@@ -41,7 +47,11 @@ function HomePage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <button className="btn btn-primary" type="submit">
+            <button
+              className="btn"
+              type="submit"
+              style={{ background: "#93B1A6" }}
+            >
               Cerca
             </button>
           </form>
